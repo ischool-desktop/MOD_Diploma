@@ -152,9 +152,9 @@
             this.lbHelp.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbHelp.Location = new System.Drawing.Point(27, 62);
             this.lbHelp.Name = "lbHelp";
-            this.lbHelp.Size = new System.Drawing.Size(329, 56);
+            this.lbHelp.Size = new System.Drawing.Size(292, 56);
             this.lbHelp.TabIndex = 5;
-            this.lbHelp.Text = "1.列印的種類分別為高中/高職/進校\r\n2.單一列印作業請勿超過500名學生\r\n3.單檔列印:每一名學生將以學號姓名編號儲存單一檔案";
+            this.lbHelp.Text = "1.列印的種類分別為高中/高職/進校\r\n2.單一列印作業請勿超過300名學生\r\n3.功能變數總表,提供多種可套用變數,請自行參考";
             // 
             // linkReportNameList
             // 
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 169);
+            this.ClientSize = new System.Drawing.Size(524, 171);
             this.Controls.Add(this.linkReportNameList);
             this.Controls.Add(this.lbHelp);
             this.Controls.Add(this.linkChange);
@@ -182,7 +182,7 @@
             this.Controls.Add(this.btnPrint);
             this.DoubleBuffered = true;
             this.Name = "DiplomaForm";
-            this.Text = "畢業證書_高中,高職,進校(For Office 2007以上版本Word)";
+            this.Text = "畢業證書(高中,高職,進校)";
             this.ResumeLayout(false);
             this.PerformLayout();
 

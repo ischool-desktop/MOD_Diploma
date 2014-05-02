@@ -109,6 +109,7 @@ namespace DiplomaReport
             MergeTable.Columns.Add("校長英文姓名");
             MergeTable.Columns.Add("學年度");
             MergeTable.Columns.Add("學生");
+            MergeTable.Columns.Add("身分證號");
             MergeTable.Columns.Add("畢業證書字號");
             MergeTable.Columns.Add("英文姓名");
             MergeTable.Columns.Add("科別");
@@ -121,9 +122,9 @@ namespace DiplomaReport
             MergeTable.Columns.Add("生日月");
             MergeTable.Columns.Add("生日日");
             MergeTable.Columns.Add("列印日期");
-            MergeTable.Columns.Add("年");
-            MergeTable.Columns.Add("月");
-            MergeTable.Columns.Add("日");
+            MergeTable.Columns.Add("列印年");
+            MergeTable.Columns.Add("列印月");
+            MergeTable.Columns.Add("列印日");
             //姓名 ,  英文姓名 , 生日 , 科別 , 畢業證書字號 , 畢業照片
             //學年度 , 校長姓名 , 校長英文姓名 , 學校名稱 , 學校英文姓名
 
@@ -180,8 +181,8 @@ namespace DiplomaReport
                 MergeRow["校長姓名"] = tool.GetSchoolInfo(K12.Data.School.Configuration["學校資訊"].PreviousData, "ChancellorChineseName");
                 MergeRow["校長英文姓名"] = tool.GetSchoolInfo(K12.Data.School.Configuration["學校資訊"].PreviousData, "ChancellorEnglishName");
                 MergeRow["學年度"] = School.DefaultSchoolYear;
-
                 MergeRow["學生"] = dsr.name;
+                MergeRow["身分證號"] = dsr.name;
                 MergeRow["畢業證書字號"] = dsr.diploma_number;
                 MergeRow["英文姓名"] = dsr.english_name;
                 if (DeptNameDic.ContainsKey(dsr.department))
@@ -236,9 +237,9 @@ namespace DiplomaReport
                 }
 
                 MergeRow["列印日期"] = DateTime.Today.ToShortDateString();
-                MergeRow["年"] = DateTime.Today.Year.ToString();
-                MergeRow["月"] = DateTime.Today.Month.ToString();
-                MergeRow["日"] = DateTime.Today.Day.ToString();
+                MergeRow["列印年"] = DateTime.Today.Year.ToString();
+                MergeRow["列印月"] = DateTime.Today.Month.ToString();
+                MergeRow["列印日"] = DateTime.Today.Day.ToString();
 
                 MergeTable.Rows.Add(MergeRow);
             }
@@ -246,6 +247,7 @@ namespace DiplomaReport
             Document PageOne = (Document)Template.Clone(true);
             PageOne.MailMerge.MergeField += new Aspose.Words.Reporting.MergeFieldEventHandler(MailMerge_MergeField);
             PageOne.MailMerge.Execute(MergeTable);
+            PageOne.MailMerge.DeleteFields();
             e.Result = PageOne;
         }
 
